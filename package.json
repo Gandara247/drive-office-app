@@ -1,0 +1,23 @@
+{
+  "name": "drive-office-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "dev": "nodemon --ignore token.json --ignore uploads/ server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-session": "^1.18.0",
+    "googleapis": "^166.0.0",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.11"
+  }
+}

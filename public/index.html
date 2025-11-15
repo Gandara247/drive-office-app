@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drive Office App</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header-layout">
+        <div>
+          <h1>Drive Office App</h1>
+          <p>Gerencie subpastas e arquivos do Google Drive</p>
+        </div>
+        <div id="userArea" class="user-area hidden">
+          <div class="user-meta">
+            <small>Logado como</small>
+            <span id="userInfo">-</span>
+          </div>
+          <button id="logoutBtn" class="ghost small">Sair</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="authGate" class="card hidden">
+        <h2>Acesso restrito</h2>
+        <p>Faça login com uma conta autorizada para visualizar e gerenciar os arquivos.</p>
+        <button id="loginBtn">Entrar com Google</button>
+      </section>
+
+      <section id="alerts" role="status" aria-live="polite"></section>
+
+      <div id="appShell" class="app-shell hidden">
+        <section class="card">
+          <div class="card-header">
+            <h2>Pasta atual</h2>
+            <button id="refreshBtn" class="ghost">Atualizar</button>
+          </div>
+          <nav id="breadcrumbs" class="breadcrumbs"></nav>
+        </section>
+
+        <section class="grid">
+          <div class="card">
+            <h3>Criar subpasta</h3>
+            <form id="createFolderForm" class="stack">
+              <label>
+                Nome da nova pasta
+                <input type="text" name="folderName" placeholder="Ex: Documentos 2025" required />
+              </label>
+              <button type="submit">Criar pasta</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3>Upload de arquivo</h3>
+            <form id="uploadForm" class="stack" enctype="multipart/form-data">
+              <label>
+                Arquivo
+                <input type="file" name="file" required />
+              </label>
+              <button type="submit">Enviar para esta pasta</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Subpastas</h3>
+          <div id="foldersList" class="list"></div>
+        </section>
+
+        <section class="card">
+          <h3>Arquivos</h3>
+          <div id="filesList" class="list"></div>
+        </section>
+
+        <section class="card hidden" id="transfersCard">
+          <div class="card-header">
+            <h3>Transferências</h3>
+            <button id="clearTransfers" class="ghost">Limpar concluídas</button>
+          </div>
+          <div id="transfersList" class="list"></div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
+
