@@ -57,6 +57,11 @@ if (!process.env.SESSION_SECRET) {
 }
 
 const app = express();
+
+// Necessário em plataformas como Render/Heroku para que o Express reconheça HTTPS
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
